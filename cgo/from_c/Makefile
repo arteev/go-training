@@ -6,14 +6,10 @@ GO=go build
 all: run
 
 build:
-	$(CC) -O2 -c simple.c
-	ar q libsimple.a simple.o
-	CGO_ENABLED=1 $(GO) main.go
+	$(GO) -o main . 
 
 run: build 
 	@./main
 
 clean:
-	@rm -f libsimple.a
-	@rm -f simple.o
 	@rm -f main
